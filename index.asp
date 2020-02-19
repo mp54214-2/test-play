@@ -1,4 +1,5 @@
 <%
-	Response.Write("toimii")
-	Response.Write("toimii 2")
+	Response.Write("toimii" & vbNewLine)
+	Response.Write("toimii 2" & vbNewLine)
+	Response.Write("toimii 2" & vbNewLine)
 %>
