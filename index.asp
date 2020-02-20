@@ -4,4 +4,5 @@
 	Response.Write("toimii 3" & vbNewLine)
         Response.Write("toimii 4" & vbNewLine)
 	Response.Write("5. commit" & vbNewLine)
+	Response.Write("6. commit")
 %>
