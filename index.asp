@@ -10,4 +10,3 @@
 	Response.Write("8. commit")
 	Response.Write("9. commit")
 %>
-%>
