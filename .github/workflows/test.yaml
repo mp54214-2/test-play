@@ -22,18 +22,18 @@ jobs:
         echo $curPath
     
     - name: Decrypt File
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+      run: | 
+        gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+        echo $Home
     - name: Print HOME
       run: cat $HOME/.env
     
     - name: Expose $Home
       run: |
         ls
-        echo $Home
         curPath="$(pwd)"
         echo $curPath
-        echo pwd
-        sudo cp $HOME/.env /home/runner/work/test-play/test-play
+        sudo cp $HOME/.env $curPath
         cd $curPath
         ls
       
