@@ -19,7 +19,8 @@ jobs:
       run: cat $HOME/.env
     - name: List
       run: |
-        cd $HOME/runners
+        cd $HOME
+        cd runners
         ls 
     - name: Build
       run: echo "Project Built"
