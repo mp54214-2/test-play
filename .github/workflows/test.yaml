@@ -29,7 +29,7 @@ jobs:
     - name: Expose $Home
       run: |
         echo $Home
-        cp $HOME/env.json /$curPath
+        sudo cp $HOME/env.json /$curPath
         cd $curPath
         ls
       
