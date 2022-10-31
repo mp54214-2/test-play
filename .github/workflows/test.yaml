@@ -11,7 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: decrypt file
+      uses: actions/checkout@v3
     - name: decrypt file
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
-    - name: print $HOME
+    - name: print HOME
+      run: echo $HOME
