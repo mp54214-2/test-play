@@ -22,15 +22,15 @@ jobs:
         echo $curPath
     
     - name: Decrypt File
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env.json .env.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
     - name: Print HOME
-      run: cat $HOME/env.json
+      run: cat $HOME/.env
     
     - name: Expose $Home
       run: |
         ls
         echo $Home
-        sudo cp $HOME/env.json /home/runner/work/test-play/test-play
+        sudo cp $HOME/.env /home/runner/work/test-play/test-play
         cd $curPath
         ls
       
@@ -46,4 +46,4 @@ jobs:
         name: build-files
         path: |
           /home/runner/work/test-play/test-play
-          env.json
+          .env
