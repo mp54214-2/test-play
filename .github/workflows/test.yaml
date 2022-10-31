@@ -45,4 +45,4 @@ jobs:
       with: 
         name: build-files
         path: |
-           $curPath
+          cd ..
