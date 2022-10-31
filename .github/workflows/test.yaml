@@ -6,6 +6,7 @@ on:
 env:
   NODE_VERSION: '14.x'                # set this to the node version to use
   PARAPHRASE: "12345678"
+  curPath: "$(pwd)"
 
 jobs:
   build:
@@ -22,18 +23,17 @@ jobs:
         echo $curPath
     
     - name: Decrypt File
-      run: | 
-        gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
-        echo $Home
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
     - name: Print HOME
-      run: cat $HOME/.env
+      run: |
+        echo $Home/.env 
+        cat $HOME/.env
     
     - name: Expose $Home
       run: |
         ls
-        curPath="$(pwd)"
-        echo $curPath
-        sudo cp $HOME/.env $curPath
+        echo env.curPath
+        sudo cp $HOME/.env env.curPath
         cd $curPath
         ls
       
