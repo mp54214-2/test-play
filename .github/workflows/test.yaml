@@ -13,7 +13,16 @@ jobs:
     steps:
     - name: uppload code
       uses: actions/checkout@v3
-    - name: decrypt file
+    - name: Decrypt File
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
-    - name: print HOME
+    - name: Print HOME
       run: cat $HOME/.env
+
+    - name: Build
+      run: echo "Project Built"
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with: 
+        name: build-files
+        path: |
+          .env
