@@ -26,7 +26,7 @@ jobs:
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
     - name: Print HOME
       run: |
-        echo env.HOME_PATH
+        echo ${{env.HOME_PATH}}
         echo $Home/.env 
         cat $HOME/.env
     
