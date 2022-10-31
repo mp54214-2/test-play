@@ -18,7 +18,7 @@ jobs:
       run: pwd
     - name: List Files
       run: | 
-        ls
+        ls -a
         curPath="$(pwd)"
         echo $curPath
     
@@ -32,17 +32,17 @@ jobs:
     
     - name: Expose $Home
       run: |
-        ls
+        ls -a
         curPath="$(pwd)"
         echo $curPath
         sudo cp $HOME/.env $curPath
         cd $curPath               # does not have effect!
-        ls
+        ls -a
       
     - name: List
       run: |
         cd $HOME
-        ls 
+        ls -a
     - name: Build
       run: echo "Project Built"
     - name: Upload Artifacts
@@ -54,4 +54,4 @@ jobs:
           .env
     - name: Print
       run: |
-        ls
+        ls -a
