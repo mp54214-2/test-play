@@ -14,13 +14,12 @@ jobs:
     - name: uppload code
       uses: actions/checkout@v3
     - name: Decrypt File
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env .env.gpg
     - name: Print HOME
-      run: cat $HOME/.env
+      run: cat $HOME/env
     - name: List
       run: |
         cd $HOME
-        cd runners
         ls 
     - name: Build
       run: echo "Project Built"
@@ -29,4 +28,4 @@ jobs:
       with: 
         name: build-files
         path: |
-           .env
+           env
