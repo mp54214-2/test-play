@@ -13,6 +13,11 @@ jobs:
     steps:
     - name: uppload code
       uses: actions/checkout@v3
+    - name: Current Dir
+      run: pwd
+    - name: List Files
+      run: ls
+    
     - name: Decrypt File
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env .env.gpg
     - name: Print HOME
