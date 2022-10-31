@@ -46,3 +46,4 @@ jobs:
         name: build-files
         path: |
           /home/runner/work/test-play/test-play
+          env.json
