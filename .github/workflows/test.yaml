@@ -30,8 +30,9 @@ jobs:
       run: |
         ls
         echo $Home
-        curPath="$(pwd)"
-        echo curPath
+        curPath="$(pwd)
+        echo $curPath
+        echo pwd
         sudo cp $HOME/.env /home/runner/work/test-play/test-play
         cd $curPath
         ls
