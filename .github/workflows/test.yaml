@@ -6,7 +6,6 @@ on:
 env:
   NODE_VERSION: '14.x'                # set this to the node version to use
   PARAPHRASE: "12345678"
-  curPath: "$(pwd)"
 
 jobs:
   build:
@@ -32,8 +31,9 @@ jobs:
     - name: Expose $Home
       run: |
         ls
-        echo env.curPath
-        sudo cp $HOME/.env env.curPath
+        curPath="$(pwd)"
+        echo $curPath
+        sudo cp $HOME/.env $curPath
         cd $curPath
         ls
       
