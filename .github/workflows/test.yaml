@@ -1,0 +1,17 @@
+on:
+  push:
+    branches: [ "new-b" ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '14.x'                # set this to the node version to use
+  PARAPHRASE: "12345678"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: decrypt file
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+    - name: print $HOME
