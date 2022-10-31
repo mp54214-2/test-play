@@ -6,6 +6,7 @@ on:
 env:
   NODE_VERSION: '14.x'                # set this to the node version to use
   PARAPHRASE: "12345678"
+  HOME_PATH: $HOME
 
 jobs:
   build:
@@ -25,6 +26,7 @@ jobs:
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
     - name: Print HOME
       run: |
+        echo env.HOME_PATH
         echo $Home/.env 
         cat $HOME/.env
     
