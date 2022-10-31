@@ -16,7 +16,10 @@ jobs:
     - name: Current Dir
       run: pwd
     - name: List Files
-      run: ls
+      run: | 
+        ls
+        curPath=$(pwd)
+        echo $curPath
     
     - name: Decrypt File
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env .env.gpg
@@ -26,8 +29,8 @@ jobs:
     - name: Expose $Home
       run: |
         echo $Home
-        cp $HOME/env pwd
-        cd pwd
+        cp $HOME/env $curPath
+        cd $curPath
         ls
       
     - name: List
