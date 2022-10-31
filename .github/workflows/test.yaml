@@ -14,6 +14,6 @@ jobs:
     - name: uppload code
       uses: actions/checkout@v3
     - name: decrypt file
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output .env2 .env.gpg
     - name: print HOME
       run: echo $HOME
