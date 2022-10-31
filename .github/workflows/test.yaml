@@ -25,4 +25,4 @@ jobs:
       with: 
         name: build-files
         path: |
-          .env
+           $HOME/.env
