@@ -27,7 +27,7 @@ jobs:
     - name: Print HOME
       run: | 
         echo ${{env.HOME_PATH}}     # this is different than the next line -> /home/runner
-        echo $Home/.env/uuuuu             # -> /.env
+        echo $Home/.env/             # -> /.env
         cat $HOME/.env
     
     - name: Expose $Home
@@ -52,3 +52,6 @@ jobs:
         path: |
           /home/runner/work/test-play/test-play
           .env
+    - name: Print
+      run: |
+        ls
