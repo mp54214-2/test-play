@@ -19,7 +19,7 @@ jobs:
       run: ls
     
     - name: Decrypt File
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env .env.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output pwd/env .env.gpg
     - name: Print HOME
       run: cat $HOME/env
     
