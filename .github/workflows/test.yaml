@@ -18,7 +18,7 @@ jobs:
     - name: List Files
       run: | 
         ls
-        curPath="/$(pwd)"
+        curPath="$(pwd)"
         echo $curPath
     
     - name: Decrypt File
@@ -30,7 +30,7 @@ jobs:
       run: |
         ls
         echo $Home
-        sudo cp $HOME/.env $curPath
+        sudo cp $HOME/.env /home/runner/work/test-play/test-play
         cd $curPath
         ls
       
