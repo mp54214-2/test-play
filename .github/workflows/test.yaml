@@ -30,7 +30,7 @@ jobs:
       run: |
         ls
         echo $Home
-        sudo cp $HOME/.env /home/runner/work/test-play/test-play
+        sudo cp $HOME/.env $curPath
         cd $curPath
         ls
       
