@@ -25,9 +25,9 @@ jobs:
     - name: Decrypt File
       run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
     - name: Print HOME
-      run: |
-        echo ${{env.HOME_PATH}}
-        echo $Home/.env 
+      run: | 
+        echo ${{env.HOME_PATH}}     # this is different than the next line -> /home/runner
+        echo $Home/.env/uuuuu             # -> /.env
         cat $HOME/.env
     
     - name: Expose $Home
@@ -36,7 +36,7 @@ jobs:
         curPath="$(pwd)"
         echo $curPath
         sudo cp $HOME/.env $curPath
-        cd $curPath
+        cd $curPath               # does not have effect!
         ls
       
     - name: List
