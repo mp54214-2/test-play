@@ -22,14 +22,14 @@ jobs:
         echo $curPath
     
     - name: Decrypt File
-      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/.env .env.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{env.PARAPHRASE}} --output $HOME/env.json .env.gpg
     - name: Print HOME
-      run: cat $HOME/.env
+      run: cat $HOME/env.json
     
     - name: Expose $Home
       run: |
         echo $Home
-        cp $HOME/.env /$curPath
+        cp $HOME/env.json /$curPath
         cd $curPath
         ls
       
