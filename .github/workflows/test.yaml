@@ -19,8 +19,8 @@ jobs:
       run: cat $HOME/.env
     - name: List
       run: |
-        cd $HOME
-        ls
+        cd $HOME/runners
+        ls 
     - name: Build
       run: echo "Project Built"
     - name: Upload Artifacts
